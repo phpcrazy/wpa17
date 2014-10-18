@@ -3,6 +3,10 @@ define('DD', __DIR__ . '/..');
 
 require DD . '/wpa17/functions.php';
 
+$moo = _config_get('site.foo.bar');
+var_dump($moo);
+die();
+
 if (isset($_GET['page'])) {
 	$page = $_GET['page'];
 } else {
@@ -11,7 +15,11 @@ if (isset($_GET['page'])) {
 
 switch ($page) {
 	case 'home':
-		_view_load('home');
+
+		$data = array(
+			'title'	=> _config_get('site.title')
+			);
+		_view_load('home', $data);
 		break;
 	case 'blog':
 		$data = array(
