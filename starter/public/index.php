@@ -1,5 +1,6 @@
 <?php 
-define('DD', __DIR__ . '/..');
+
+define('DD', __DIR__ . '/..'); 
 
 require DD . '/wpa17/functions.php';
 require DD . '/app/controller/controllers.php';
@@ -10,12 +11,13 @@ if (isset($_GET['page'])) {
 	$page = 'home';
 }
 
-$controller_name = ucfirst($page) . 'Controller';
+$routes = include DD . '/app/routes.php';
 
-if(function_exists($controller_name)) {
-	call_user_func($controller_name);
+if(array_key_exists($page, $routes)) {
+	call_user_func($routes[$page]);	
 } else {
-	echo "404";
+	echo "404 Not Found!";
 }
+
 
  ?>

@@ -21,6 +21,7 @@ function _config_get($value) {
 function _arrayResolver($key, $default_array) {
 	foreach ($key as $k => $value) {
 		$default_array = $default_array[$value];
+		var_dump($default_array);
 	}
 	return $default_array;
 }

@@ -4,7 +4,7 @@ function HomeController() {
 	$data = array(
 		'title'	=> _config_get('site.title')
 		);
-	_view_load('test', $data);
+	_view_load('home', $data);
 }
 
 function BlogController() {
