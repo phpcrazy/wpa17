@@ -21,9 +21,33 @@ function _config_get($value) {
 function _arrayResolver($key, $default_array) {
 	foreach ($key as $k => $value) {
 		$default_array = $default_array[$value];
-		var_dump($default_array);
 	}
 	return $default_array;
+}
+
+/** 
+* Connect to Database 
+* @param string, array
+*/
+
+function _DB($sql, $value = array()) {
+	$servername = _config_get('database.hostname');
+	$username = _config_get('database.username');
+	$password = _config_get('database.password');
+	$dbname = _config_get('database.dbname');
+	try {
+		$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+		$stmt = $conn->prepare($sql);
+		$stmt->execute($value);
+		$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		unset($conn);
+		return $products;
+	
+	}
+	catch(PDOException $e)
+	{
+		echo $e->getMessage();
+	}
 }
 
 ?>

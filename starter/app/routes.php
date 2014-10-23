@@ -6,7 +6,8 @@ return array(
 	'test'	=> function() {
 		_view_load('home');
 	},
-	'foo'	=> 'BlogController'
+	'foo'		=> 'BlogController',
+	'product'	=> 'ProductController'
 	);
 
  ?>

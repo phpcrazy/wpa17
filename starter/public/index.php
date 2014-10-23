@@ -1,8 +1,13 @@
 <?php 
 
+/* 
+What - Defines a named constant at runtime. 
+Why - define the root directory 
+*/
 define('DD', __DIR__ . '/..'); 
 
 require DD . '/wpa17/functions.php';
+require DD . "/app/model/models.php";
 require DD . '/app/controller/controllers.php';
 
 if (isset($_GET['page'])) {
