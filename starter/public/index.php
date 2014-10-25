@@ -10,16 +10,17 @@ require DD . '/wpa17/functions.php';
 require DD . "/app/model/models.php";
 require DD . '/app/controller/controllers.php';
 
-if (isset($_GET['page'])) {
-	$page = $_GET['page'];
-} else {
-	$page = 'home';
+$requestURI = explode('/', strtolower($_SERVER['REQUEST_URI']));
+$scriptName = explode('/', strtolower($_SERVER['SCRIPT_NAME']));
+$request_uri = array_diff($requestURI, $scriptName);
+$request_uri = array_values($request_uri);
+if(empty($request_uri)) {
+	$request_uri[0] = 'home';
 }
-
 $routes = include DD . '/app/routes.php';
 
-if(array_key_exists($page, $routes)) {
-	call_user_func($routes[$page]);	
+if(array_key_exists($request_uri[0], $routes)) {
+	call_user_func($routes[$request_uri[0]]);	
 } else {
 	echo "404 Not Found!";
 }
