@@ -7,7 +7,11 @@ return array(
 		_view_load('home');
 	},
 	'foo'		=> 'BlogController',
-	'product'	=> 'ProductController'
+	'product'	=> 'ProductController',
+	'adduser'	=> 'AddUserController',
+	'submituser'=> 'SubmitUserController',
+	'members'	=> 'MembersController',
+	'login'		=> 'LoginController'
 	);
 
  ?>
