@@ -27,7 +27,7 @@ function _checkUserNameAndPassword($username, $password) {
 	if(empty($id)) {
 		return false;
 	}
-	return true;
+	return $id;
 }
 
 

@@ -42,7 +42,7 @@ function _DB($sql, $value = array()) {
 		$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		unset($conn);
 		return $products;
-	
+
 	}
 	catch(PDOException $e)
 	{
@@ -50,4 +50,23 @@ function _DB($sql, $value = array()) {
 	}
 }
 
-?>
+function _redirect($url) {
+	if(!headers_sent()) {
+		header('Location: ' . _base_url() . $url);
+	}
+}
+
+function _base_url() {
+	return _config_get('site.base_url');
+}
+
+function _login_check() {
+	session_start();
+	if(isset($_SESSION['user_id']))
+	{
+		return true;
+	}
+	return false;
+}
+
+	?>

@@ -11,7 +11,8 @@ return array(
 	'adduser'	=> 'AddUserController',
 	'submituser'=> 'SubmitUserController',
 	'members'	=> 'MembersController',
-	'login'		=> 'LoginController'
+	'login'		=> 'LoginController',
+	'logout'	=> 'LogoutController',
 	);
 
  ?>

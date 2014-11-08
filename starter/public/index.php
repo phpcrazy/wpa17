@@ -17,6 +17,7 @@ $request_uri = array_values($request_uri);
 if(empty($request_uri)) {
 	$request_uri[0] = 'home';
 }
+
 $routes = include DD . '/app/routes.php';
 
 if(array_key_exists($request_uri[0], $routes)) {

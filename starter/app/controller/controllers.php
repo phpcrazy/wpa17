@@ -1,10 +1,15 @@
 <?php 
 
 function HomeController() {
-	$data = array(
-		'title'	=> _config_get('site.title')
+	if(_login_check()) {
+		$data = array(
+			'title'	=> _config_get('site.title')
 		);
-	_view_load('home', $data);
+		_view_load('home', $data);	
+	} else {
+		_redirect('login');
+	}
+	
 }
 
 function ProductController() {
@@ -35,7 +40,12 @@ function AddUserController() {
 }
 
 function MembersController() {
-	echo "Hello Member!";
+	if(_login_check()) {
+		echo "Hello Member!";	
+	} else {
+		_redirect('login');
+	}
+	
 }
 
 function LoginController() {
@@ -43,11 +53,21 @@ function LoginController() {
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 		$check_password = sha1(_config_get('site._salt')  . $password);
-		if(_checkUserNameAndPassword($username, $check_password)) {
-			header('Location: http://localhost/wpa17/starter/public/members');
+		if($user_id = _checkUserNameAndPassword($username, $check_password)) {
+			session_start();
+			$_SESSION['user_id'] = $user_id;
+			_redirect('members');
+			
 		}
 	}
 	_view_load('login');
+}
+
+function LogoutController() {
+	session_start();
+	$_SESSION['user_id'] = '';
+	session_destroy();
+	_redirect('login');
 }
 
 function SubmitUserController() {
