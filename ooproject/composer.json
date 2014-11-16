@@ -1,6 +1,7 @@
 {
 	"autoload": {
 		"classmap": [
+			"app/controller",
 			"wpa17/library"
 		],
 		"files": [

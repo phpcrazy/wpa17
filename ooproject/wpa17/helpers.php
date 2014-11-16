@@ -12,4 +12,8 @@ function dump($value, $die = FALSE) {
 		die();
 	}
 }
+
+function base_url() {
+	return Config::site('base_url');
+}
 ?>
