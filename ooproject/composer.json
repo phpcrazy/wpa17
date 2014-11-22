@@ -5,7 +5,8 @@
 			},
 		"classmap": [
 			"app/controller",
-			"wpa17/library"
+			"wpa17/library",
+			"wpa17/provider"
 		],
 		"files": [
 			"wpa17/helpers.php"

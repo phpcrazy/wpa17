@@ -2,6 +2,7 @@
 namespace Wpa17\Core;
 
 class Application {
+	// registry design pattern
 	private $request_uri;
 
 	public function __construct()
