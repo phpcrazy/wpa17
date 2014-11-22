@@ -1,5 +1,8 @@
 {
 	"autoload": {
+		"psr-4": {
+			"Wpa17\\" : "wpa17/src"
+			},
 		"classmap": [
 			"app/controller",
 			"wpa17/library"
