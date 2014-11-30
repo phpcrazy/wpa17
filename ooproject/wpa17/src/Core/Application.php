@@ -14,8 +14,6 @@ class Application {
 		if(empty($this->request_uri)) {
 			$this->request_uri[0] = 'home';
 		}
-		var_dump($this->request_uri);
-
 	}
 
 	public function run() {
