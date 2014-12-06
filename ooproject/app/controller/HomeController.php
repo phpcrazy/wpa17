@@ -25,6 +25,30 @@ class HomeController {
 		 	->get();
 		 dump($users);
 
+
+		 
+		 $product = array(
+		 	'name'		=>  'iPad',
+		 	'quantity'	=> 45,
+		 	'price'		=> 4000,
+		 	'remark'	=> 'Nothing Special'
+		 	);
+		 
+		
+		 $inserted_id = DB::table('products')->insert($product);
+		 var_dump("ID " . $inserted_id . ' is inserted.');
+		
+		 /*
+
+		 "INSERT INTO books 
+		 	($product['name']) 
+		 	VALUES (:title,:author)";
+		
+		*/
+		 // Insert
+		 // delete
+		 // Update
+
 		 // $users = DB::table('users')
 		 // 	->where('username', 'thiha')
 		 // 	->get();

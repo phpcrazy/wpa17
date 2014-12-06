@@ -29,7 +29,6 @@ class DB extends PDO {
 
 	public function __destruct() 
 	{
-		echo "Unset";
 		unset($this);
 	}
 
@@ -50,6 +49,19 @@ class DB extends PDO {
 		$stmt->execute(array());
 		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		return $result;
+	}
+
+	public function insert(array $data) {	
+		$data_key = array_keys($data);
+		$implode_key = implode(', ', $data_key);
+		$implode_data = implode(', :', $data_key);
+		$sql = "INSERT INTO " . $this->table_name 
+			. "(" . $implode_key . ") VALUES" 
+			. "( :" . $implode_data . ")";
+			
+		$stmt = $this->prepare($sql);
+		$stmt->execute($data);
+		return $this->lastInsertId();
 	}
 }
 ?>
