@@ -17,6 +17,9 @@ class Application {
 	}
 
 	public function run() {
+
+		// Rules Set
+		// Resolver (Rules Vs Request)
 		$routes = include DD . '/app/routes.php';
 
 		if(array_key_exists($this->request_uri[0], $routes)) {

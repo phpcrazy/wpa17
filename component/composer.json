@@ -1,0 +1,18 @@
+{
+	"require": {
+		"symfony/http-foundation": "2.6.*@dev",
+		"symfony/http-kernel": "2.6.*@dev",
+	    "symfony/routing": "2.6.*@dev",
+	  	"pimple/pimple": "3.0.*@dev"
+	},
+  	"autoload": {
+	  	"psr-4": {
+		  	"Wpa17\\": "wpa17/src"
+		},
+	  	"classmap": [
+
+		  "app/controller"
+
+		]
+	}
+}
