@@ -12,14 +12,15 @@ use Symfony\Component\Routing\Route;
 
 $routes = new RouteCollection();
 
-$routes->add("foo", new Route('/foo', [function() {
-    echo "You Fool!";
-}]));
+$routes->add("foo", new Route('/foo'));
 
 $routes->add("bar", new Route('/bar', array(
-    function() {
-        echo "Idiot!";
-    }
+    "_controller"   => "BarController::test"
+
+)));
+
+$routes->add("home", new Route('/{id}', array(
+    "_controller"   => "HomeController::test"
 )));
 
 return $routes;
